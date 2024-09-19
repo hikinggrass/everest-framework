@@ -19,5 +19,8 @@
   ],
   "labels": [
     "renovate"
-  ]
+  ],
+  "digest": {
+    "enabled": false
+  }
 }
