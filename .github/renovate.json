@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "customManagers": [
+    {
+      "description": "Custom manager for EVerest dependencies.yaml files",
+      "customType": "regex",
+      "fileMatch": [
+        "(^|/|\\.)dependencies.yaml$"
+      ],
+      "matchStrings": [
+        "(\\w)+:\n(  git: https:\/\/github\\.com\/)(?<packageName>.*?)(\n|.git\n)\\s{2}git_tag:\\s(?<currentValue>.*?)\n"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "labels": [
+    "renovate"
+  ],
+  "digest": {
+    "enabled": false
+  }
+}
